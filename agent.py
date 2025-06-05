@@ -90,6 +90,15 @@ def main():
         # print("\nОтвет Llama:")
         # print(answer)
         return answer
+
+def main_with_prompt(user_prompt: str):
+    init_db()
+    label = process_prompt(user_prompt)
+    if label == 1:
+        return "Промпт классифицирован как: Jailbreak prompt. Запрос отклонен"
+    else:
+        llm = LlamaLLM()
+        return llm.generate_llama_response(prompt_input=user_prompt)
         
 
 
