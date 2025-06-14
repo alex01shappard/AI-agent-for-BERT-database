@@ -1,4 +1,4 @@
-from main import app, classifier
+from api import app, classifier
 from unittest.mock import MagicMock
 from fastapi.testclient import TestClient
 
