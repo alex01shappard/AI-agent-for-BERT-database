@@ -4,3 +4,4 @@ pandas
 langchain
 unsloth
 fastapi
+pydantic
