@@ -5,3 +5,5 @@ langchain
 unsloth
 fastapi
 pydantic
+pytest
+flake8
