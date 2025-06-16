@@ -4,6 +4,7 @@ import tempfile
 import os
 import database
 
+
 class TestDatabase(unittest.TestCase):
 
     def setUp(self):
@@ -17,7 +18,9 @@ class TestDatabase(unittest.TestCase):
         self.cursor = self.conn.cursor()
 
     def test_init_db_creates_table(self):
-        self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='prompts'")
+        self.cursor.execute(
+            "SELECT name FROM sqlite_master WHERE type='table'"
+            "AND name='prompts'")
         table = self.cursor.fetchone()
         self.assertIsNotNone(table)
         self.assertEqual(table[0], "prompts")
@@ -32,4 +35,4 @@ class TestDatabase(unittest.TestCase):
 
     def tearDown(self):
         self.conn.close()
-        os.unlink(self.temp_db_file.name) 
+        os.unlink(self.temp_db_file.name)
